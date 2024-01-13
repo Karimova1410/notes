@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.dto.note.NoteRequest;
 import com.example.demo.dto.note.NoteResponse;
+import com.example.demo.dto.user.UserResponse;
 import com.example.demo.entities.Note;
 import com.example.demo.exception.NotFoundException;
 import com.example.demo.mapper.NoteMapper;
@@ -11,6 +12,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -57,7 +59,10 @@ public class NoteServiceImpl implements NoteService {
 
     }
 
-
+    @Override
+    public List<NoteResponse> getAll() {
+        return noteMapper.toDtoS(noteRepository.findAll());
+    }
 
 
 }

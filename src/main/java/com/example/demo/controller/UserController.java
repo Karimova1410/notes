@@ -7,6 +7,8 @@ import com.example.demo.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("/user")
@@ -31,6 +33,10 @@ public class UserController {
     @PutMapping("/update/{id}")
     public void updateUser(@PathVariable Long id, @RequestBody UserRequest userRequest){
         userService.updateById(id, userRequest);
+    }
+    @GetMapping("/getAll")
+    public List<UserResponse> userResponses(){
+        return userService.getAll();
     }
 
 

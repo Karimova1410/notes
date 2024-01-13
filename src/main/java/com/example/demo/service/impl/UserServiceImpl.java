@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -32,7 +33,7 @@ public class UserServiceImpl implements UserService {
     public void addUser(UserRequest userRequest) {
         User user = new User();
         user.setName(userRequest.getName());
-        user.setAge(userRequest.getAge());
+        user.setEmail(userRequest.getEmail());
         user.setPosition(userRequest.getPosition());
         userRepository.save(user);
     }
@@ -49,10 +50,15 @@ public class UserServiceImpl implements UserService {
         Optional<User> user = userRepository.findById(id);
         if (user.isEmpty())
             throw new NotFoundException("user not found with id:"+id+"!", HttpStatus.BAD_REQUEST);
-        user.get().setAge(userRequest.getAge());
+        user.get().setEmail(userRequest.getEmail());
         user.get().setName(userRequest.getName());
         user.get().setPosition(userRequest.getPosition());
 
         userRepository.save(user.get());
+    }
+
+    @Override
+    public List<UserResponse> getAll() {
+        return userMapper.toDtos(userRepository.findAll());
     }
 }

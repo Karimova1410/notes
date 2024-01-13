@@ -7,6 +7,7 @@ import com.example.demo.service.NoteService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 
 @RestController
@@ -34,6 +35,10 @@ public class NoteController {
     @PutMapping("/update/{id}")
     public void updateById(@PathVariable Long id, @RequestBody NoteRequest noteRequest){
         noteService.updateById(id,noteRequest);
+    }
+    @GetMapping("/getAllCategories")
+    public List<NoteResponse> noteResponses(){
+        return noteService.getAll();
     }
 
 
