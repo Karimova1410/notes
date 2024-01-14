@@ -72,7 +72,7 @@ public class NoteServiceImpl implements NoteService {
         Optional<User> user = userRepository.findById(userId);
         if(user.isEmpty())
             throw new NotFoundException("This user doesn't exist!", HttpStatus.NOT_FOUND);
-        return noteMapper.toDtos(user.get().getUserNotes());
+        return noteMapper.toDtoS(user.get().getUserNotes());
     }
 
     @Override

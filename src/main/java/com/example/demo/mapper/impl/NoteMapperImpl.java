@@ -29,12 +29,6 @@ public class NoteMapperImpl implements NoteMapper {
         }
         return noteResponses;
     }
-    public List<NoteResponse> toDtos(List<Note> notes){
-        List<NoteResponse> noteResponseList = new ArrayList<>();
-        for(Note note: notes){
-            noteResponseList.add(toDto(note));
-        }
-        return noteResponseList;
-    }
+
 
 }
