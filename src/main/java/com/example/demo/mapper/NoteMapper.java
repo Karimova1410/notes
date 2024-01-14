@@ -10,4 +10,6 @@ public interface NoteMapper {
     NoteResponse toDto(Note note);
     List<NoteResponse> toDtoS(List<Note> all);
 
+    List<NoteResponse> toDtos(List<Note> products);
+
 }

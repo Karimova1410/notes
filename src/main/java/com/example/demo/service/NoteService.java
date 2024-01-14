@@ -16,4 +16,8 @@ public interface NoteService {
 
 
     List<NoteResponse> getAll();
+
+    List<NoteResponse> getUserNotes(Long userId);
+
+    void addNoteToUser(Long userId, NoteRequest noteRequest);
 }

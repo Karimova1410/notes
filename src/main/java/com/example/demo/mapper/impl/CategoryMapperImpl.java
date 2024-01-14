@@ -1,7 +1,9 @@
 package com.example.demo.mapper.impl;
 
 import com.example.demo.dto.category.CategoryResponse;
+import com.example.demo.dto.note.NoteResponse;
 import com.example.demo.entities.Category;
+import com.example.demo.entities.Note;
 import com.example.demo.mapper.CategoryMapper;
 import org.springframework.stereotype.Component;
 
@@ -25,4 +27,6 @@ public class CategoryMapperImpl implements CategoryMapper {
         }
         return categoryResponses;
     }
+
+
 }
